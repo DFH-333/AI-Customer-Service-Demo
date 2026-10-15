@@ -1,6 +1,6 @@
 # 店铺 AI 客服 · 可交付版 Demo
 
-[![CI](https://github.com/DDD-333/AI-Customer-Service-Demo/actions/workflows/ci.yml/badge.svg)](https://github.com/DDD-333/AI-Customer-Service-Demo/actions/workflows/ci.yml)
+[![CI](https://github.com/DFH-333/AI-Customer-Service-Demo/actions/workflows/ci.yml/badge.svg)](https://github.com/DFH-333/AI-Customer-Service-Demo/actions/workflows/ci.yml)
 [![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
 [![依赖](https://img.shields.io/badge/依赖-仅标准库-brightgreen)](.)
 [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
