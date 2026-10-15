@@ -160,6 +160,9 @@ SYNONYMS = {
     "应聘": "招聘 招人", "找工作": "招聘 应聘", "加盟": "合作 加盟费", "生日": "长寿面 生日宴",
     "过敏": "忌口 花生", "厕所": "洗手间 卫生间", "车位": "停车", "酒": "酒水",
     "消费": "人均 价格", "送不送": "外卖 配送", "有没有": "", "能不能": "",
+    # 同一件事的不同说法，字面上一个二元组都不重叠 —— 不加就会答错或答不上来
+    "小孩": "儿童 小朋友 宝宝椅", "小朋友": "儿童 小孩", "儿童": "小朋友 小孩",
+    "宝宝": "宝宝椅 儿童", "狗": "小型犬 宠物 牵绳", "宠物": "小型犬 狗",
 }
 
 
@@ -219,9 +222,12 @@ def extract_answer(question, chunks):
             elif second is None or sc > second[0]:
                 second = (sc, line, c["title"])
     if best is None:
+        # 一行都没对上：宁可把这个话题整个端出去，也不要只取第一行 ——
+        # 一个话题里常常说了好几件事（比如「宠物和小孩」），第一行未必是问的那件。
         c = hits[0]
-        first = c["text"].splitlines()[0].strip().lstrip("-").strip()
-        return first, [c["title"]]
+        lines = [l.strip().lstrip("-").strip()
+                 for l in c["text"].splitlines() if l.strip()]
+        return " ".join(lines), [c["title"]]
     ans = best[1]
     if second and second[2] == best[2] and len(ans) + len(second[1]) < 90:
         ans = ans + " " + second[1]
