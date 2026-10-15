@@ -54,7 +54,9 @@ def main():
     if bad:
         print("不过关的通常是：这句问法缺少对应的同义词 —— "
               "到 app.py 的 SYNONYMS 里加一条就行。")
+        return 1
+    return 0
 
 
 if __name__ == "__main__":
-    main()
+    sys.exit(main())

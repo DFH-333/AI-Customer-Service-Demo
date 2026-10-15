@@ -1,5 +1,10 @@
 # 店铺 AI 客服 · 可交付版 Demo
 
+[![CI](https://github.com/DDD-333/AI-Customer-Service-Demo/actions/workflows/ci.yml/badge.svg)](https://github.com/DDD-333/AI-Customer-Service-Demo/actions/workflows/ci.yml)
+[![Python](https://img.shields.io/badge/Python-3.8%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+[![依赖](https://img.shields.io/badge/依赖-仅标准库-brightgreen)](.)
+[![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 > 把一个店的资料丢进去，得到一个**知道自己不知道什么**的客服 Agent。
 > 零第三方依赖 —— 只用 Python 标准库，`python app.py` 就跑起来。
 
@@ -212,7 +217,7 @@ Windows 上直接双击 **`启动.bat`**。
 
 ## 路线图
 
-- [ ] 自检脚本返回退出码 + GitHub Actions，README 挂 CI 徽章
+- [x] 自检脚本返回退出码 + GitHub Actions，README 挂 CI 徽章
 - [ ] 回归集从 19 条扩到 60 条，输出**召回率**和**拒答准确率**两个指标
 - [ ] 拒答阈值扫描曲线，画出「召回 ↑ 幻觉 ↑」的权衡
 - [ ] 前端迁移到 React + TypeScript，后端迁移到 FastAPI + PostgreSQL

@@ -58,3 +58,4 @@ for q in SHOULD_REFUSE:
     print(f"  {'OK' if not h else '××'}  {q:<14} → {'、'.join(h[:2]) if h else '（正确拒答）'}")
 
 print(f"\n{'== 全部通过 ==' if bad == 0 else f'== {bad} 条没过，看上面 ×× =='}")
+sys.exit(1 if bad else 0)
