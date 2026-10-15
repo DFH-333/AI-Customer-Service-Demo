@@ -1,0 +1,25 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+env/
+
+# 密钥 —— 绝不允许进仓库
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# 编辑器 / 系统
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# 客户真实资料（如果要给真实客户做，把他们的资料放这里，别提交）
+private/
+客户资料/
