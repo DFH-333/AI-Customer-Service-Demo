@@ -37,3 +37,32 @@ jobs:
         run: python "${{ matrix.client.script }}"
         env:
           PYTHONIOENCODING: utf-8
+
+  eval:
+    name: 指标评测（召回率 / 拒答准确率）
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 拉代码
+        uses: actions/checkout@v4
+
+      - name: 装 Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 60 道题 + 阈值扫描。指标掉到下限以下就红 ——
+      # 这是「别改坏了」的闸，不是「达标」的闸。
+      # 顺便把曲线写出来，当构建产物存着，好回头对比。
+      - name: 跑评测
+        run: python 评测.py --svg 评测曲线.svg
+        env:
+          PYTHONIOENCODING: utf-8
+
+      - name: 存曲线
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: 召回拒答曲线
+          path: 评测曲线.svg
+          if-no-files-found: ignore
